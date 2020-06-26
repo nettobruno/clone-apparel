@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apparel</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="container">
+    <div id="logo">
+      <img src="./img/logo.svg" alt="Logo Apparel">
+    </div>
+
+    <div id="texts">
+      <div id="content">
+        <h1><span>We're</span><br> coming<br> soon</h1>
+  
+        <p>Hello fellow shoppers! We're currently building our new fashion store. 
+        Add your email below to stay up-to-date with announcements and our launch deals.</p>
+      </div>
+  
+      <form name="form">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email Address"
+          onblur="validacaoEmail(form.email)"
+          oninvalid="setCustomValidity(' ')"
+        />
+        <img src="./img/icon-error.svg" alt="Icon error invalid email" id="imgError">
+
+        <button id="formButton"><img src="./img/icon-arrow.svg" alt="Icon arrow"></button>
+        <p id="msgemail"></p>
+      </form>
+    </div>
+
+    <div id="image"></div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
