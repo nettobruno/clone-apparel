@@ -1,32 +1,22 @@
-function validacaoEmail(field) {
-  usuario = field.value.substring(0, field.value.indexOf("@"));
-  dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
-  
-  if ((usuario.length >=1) &&
-      (dominio.length >=3) && 
-      (usuario.search("@")==-1) && 
-      (dominio.search("@")==-1) &&
-      (usuario.search(" ")==-1) && 
-      (dominio.search(" ")==-1) &&
-      (dominio.search(".")!=-1) &&      
-      (dominio.indexOf(".") >=1)&& 
-      (dominio.lastIndexOf(".") < dominio.length - 1)) {
-        document.getElementById("msgemail").innerHTML="Please provide valid email";
-        let element = document.getElementById("email");
-        element.classList.add("inputError");
-        
-        document.getElementById("imgError").style.display = "block";
+let email = document.querySelector('#email');
+let textError = document.getElementById("msgemail");
+let buttonForm = document.querySelector('#formButton');
 
-        document.getElementById("formButton").style.boxShadow = "2px 2px 10px hsl(0, 36%, 70%)";
+buttonForm.addEventListener('click', function(e) {
+  e.preventDefault();
 
-  }
-  else{
-    document.getElementById("msgemail").innerHTML="<font>Please provide valid email </font>";
-    let element = document.getElementById("email");
-    element.classList.add("inputError");
+  var regex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
+  if(!regex.test(email.value)) {
+    email.style.border = "1px solid red";
+    textError.innerHTML="Please provide valid email";
     document.getElementById("imgError").style.display = "block";
-
     document.getElementById("formButton").style.boxShadow = "2px 2px 10px hsl(0, 36%, 70%)";
   }
-}
+  else {
+    email.style.border = "1px solid hsla(0, 6%, 24%, 0.330)";
+    textError.innerHTML="";
+    document.getElementById("imgError").style.display = "none";
+    document.getElementById("formButton").style.boxShadow = "unset";
+  }
+})
